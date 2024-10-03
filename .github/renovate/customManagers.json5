@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": ["Process CrunchyData Postgres version"],
+      "fileMatch": [
+        "(^|/|\\.)([Dd]ocker|[Cc]ontainer)file$"
+      ],
+      "matchStrings": [
+        "FROM registry.developers.crunchydata.com\/crunchydata\/crunchy-postgres:ubi\d+-(?<currentValue>.*\-.*)"
+      ],
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "redhat"
+    }
+  ]
+}
