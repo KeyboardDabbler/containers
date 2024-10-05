@@ -1,12 +1,13 @@
 #Spec: {
-    app: #AppName
-    semver?: bool
+    app:  #AcceptableAppName
+    base: bool
+    semantic_versioning?: bool
     channels: [...#Channels]
 }
 
 #Channels: {
-    name: #ChannelName
-    platforms: [...#Platforms]
+    name: #AcceptableChannelName
+    platforms: [...#AcceptedPlatforms]
     stable: bool
     tests: {
         enabled: bool
@@ -14,6 +15,6 @@
     }
 }
 
-#AppName:     string & !="" & =~"^[a-zA-Z0-9_-]+$"
-#ChannelName: string & !="" & =~"^[a-zA-Z0-9._-]+$"
-#Platforms:   "linux/amd64" | "linux/arm64"
+#AcceptableAppName:           string & !="" & =~"^[a-zA-Z0-9_-]+$"
+#AcceptableChannelName:       string & !="" & =~"^[a-zA-Z0-9._-]+$"
+#AcceptedPlatforms:        "linux/amd64" | "linux/arm64"
